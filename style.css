@@ -1,0 +1,8 @@
+body {
+  background-image: linear-gradient(rgb(59,88,93),rgb(29, 40, 42));
+  height: 100vh;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
