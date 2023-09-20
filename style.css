@@ -1,8 +1,8 @@
 body {
   background-image: linear-gradient(rgb(59,88,93),rgb(29, 40, 42));
-  height: 100vh;
   color: white;
   font-family: sans-serif;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 3em 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 
 #button-container {
@@ -36,13 +36,13 @@ body {
 }
 
 #cover {
-  width: 450px;
+  width: 400px;
 }
 
 #playlist-tittle {
   display: flex;
   flex-direction: row;
-  margin-bottom: 4em;
+  margin-bottom: 1.5em;
   justify-content: center;
 }
 
@@ -60,7 +60,7 @@ body {
   height: 3px;
   width: 100%;
   border-radius: 15px;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 #current-progress {
