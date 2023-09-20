@@ -10,22 +10,26 @@
 </head>
 
 <body>
-  <h1>Player de música Hashtag</h1>
-  <img src="./img/arctic_monkeys_spotify.png" alt="">
-  <div id="below-cover">
-    <div id="song-info">
-      <div>Nome da música</div>
-      <div>Nome da Banda</div>
+  <div class="music-container">
+    <h4 id="playlist-tittle">Player de música Hashtag</h4>
+    <img id="cover" src="./img/arctic_monkeys_spotify.png" alt="">
+    <div id="below-cover">
+      <div id="song-info">
+        <div id="song-name">Nome da música</div>
+        <div id="band-name" class="light-color">Nome da Banda</div>
+      </div>
+      <div id="like" class="button"><i class="bi bi-heart"></i></div>
     </div>
-    <div id="like" class="button"><i class="bi bi-heart"></i></div>
-  </div>
-  <div>Barra de Progresso</div>
-  <div id="button-container">
-    <div id="shuffle" class="button"><i class="bi bi-shuffle"></i></div>
-    <div id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></div>
-    <div id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></div>
-    <div id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></div>
-    <div id="repeat" class="button"><i class="bi bi-repeat"></i></div>
+    <div id="progress-bar">
+      <div id="current-progress"></div>
+    </div>
+    <div id="button-container">
+      <div id="shuffle" class="button"><i class="bi bi-shuffle"></i></div>
+      <div id="previous" class="button button-navigate"><i class="bi bi-skip-start-fill"></i></div>
+      <div id="play" class="button button-biggest"><i class="bi bi-play-circle-fill"></i></div>
+      <div id="next" class="button button-navigate"><i class="bi bi-skip-end-fill"></i></div>
+      <div id="repeat" class="button"><i class="bi bi-repeat"></i></div>
+    </div>
   </div>
 </body>
 
