@@ -8,6 +8,12 @@ body {
   align-items: center;
 }
 
+button {
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
 #below-cover {
   display: flex;
   flex-direction: row;
