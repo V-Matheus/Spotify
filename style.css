@@ -70,8 +70,9 @@ button {
 }
 
 #current-progress {
+  --progress: 0%;
   background-color: white;
   height: inherit;
-  width: 50%;
+  width: var(--progress);
   border-radius: inherit;
 }
