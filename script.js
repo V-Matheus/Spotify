@@ -6,6 +6,7 @@ const play = document.getElementById('play');
 const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 const currentProgress = document.getElementById('current-progress');
+const progressContainer = document.getElementById('progress-container');
 
 songName.innerText = 'Do I wanna know ?';
 
@@ -86,7 +87,14 @@ function nextSong() {
 
 function updateProgressBar() {
   const barWidth = (song.currentTime / song.duration) * 100;
-  currentProgress.style.setProperty('--progress', `${barWidth}%`)
+  currentProgress.style.setProperty('--progress', `${barWidth}%`);
+}
+
+function jumpTo(event) {
+  const width = progressContainer.clientWidth;
+  const clickPosition = event.offsetX;
+  const jumpToTime = (clickPosition / width) * song.duration;
+  song.currentTime = jumpToTime;
 }
 
 initializeSong();
@@ -95,3 +103,4 @@ play.addEventListener('click', playPauseDecider);
 previous.addEventListener('click', previousSong);
 next.addEventListener('click', nextSong);
 song.addEventListener('timeupdate', updateProgressBar);
+progressContainer.addEventListener('click', jumpTo);

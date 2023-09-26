@@ -76,3 +76,7 @@ button {
   width: var(--progress);
   border-radius: inherit;
 }
+
+#progress-container {
+  padding: .5em;
+}
