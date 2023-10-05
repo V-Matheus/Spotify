@@ -7,6 +7,8 @@ const next = document.getElementById('next');
 const previous = document.getElementById('previous');
 const currentProgress = document.getElementById('current-progress');
 const progressContainer = document.getElementById('progress-container');
+const shuffleButton = document.getElementById('shuffle');
+const repeatButton = document.getElementById('repeat');
 
 songName.innerText = 'Do I wanna know ?';
 
@@ -29,11 +31,13 @@ const swee_child_spotify = {
 };
 
 let isPlay = false;
+let isShuffled = false;
 const playList = [
   arctic_monkeys_spotify,
   master_of_puppets_spotify,
   swee_child_spotify,
 ];
+let sortedPlaylist = [...playList];
 let index = 0;
 
 function playSong() {
@@ -59,10 +63,10 @@ function playPauseDecider() {
 }
 
 function initializeSong() {
-  cover.src = `img/${playList[index].file}.png`;
-  song.src = `songs/${playList[index].file}.mp3`;
-  songName.innerText = playList[index].songName;
-  bandName.innerText = playList[index].artist;
+  cover.src = `img/${sortedPlaylist[index].file}.png`;
+  song.src = `songs/${sortedPlaylist[index].file}.mp3`;
+  songName.innerText = sortedPlaylist[index].songName;
+  bandName.innerText = sortedPlaylist[index].artist;
 }
 
 function previousSong() {
@@ -97,6 +101,32 @@ function jumpTo(event) {
   song.currentTime = jumpToTime;
 }
 
+function shuffleArray(preShuffleArray) {
+  const size = preShuffleArray.length;
+  let currentIndex = size - 1;
+  while(currentIndex > 0) {
+   let ramdomIndex = Math.floor( Math.random() * size);
+   let aux = preShuffleArray[currentIndex];
+   preShuffleArray[currentIndex] = preShuffleArray[ramdomIndex];
+   preShuffleArray[ramdomIndex] = aux;
+   currentIndex -= 1;
+   console.log(sortedPlaylist);
+  }
+}
+
+function shuffeButtonClicked() {
+  if(!isShuffled) {
+    isShuffled = true;
+    shuffleArray(sortedPlaylist);
+    shuffleButton.classList.add('button-active')
+  }
+  else {
+    isShuffled = false;
+    sortedPlaylist = [...playList]
+    shuffleButton.classList.remove('button-active')
+  }
+}
+
 initializeSong();
 
 play.addEventListener('click', playPauseDecider);
@@ -104,3 +134,4 @@ previous.addEventListener('click', previousSong);
 next.addEventListener('click', nextSong);
 song.addEventListener('timeupdate', updateProgressBar);
 progressContainer.addEventListener('click', jumpTo);
+shuffleButton.addEventListener('click', shuffeButtonClicked);
