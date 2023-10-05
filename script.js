@@ -32,6 +32,7 @@ const swee_child_spotify = {
 
 let isPlay = false;
 let isShuffled = false;
+let repeatOn = false;
 const playList = [
   arctic_monkeys_spotify,
   master_of_puppets_spotify,
@@ -127,11 +128,31 @@ function shuffeButtonClicked() {
   }
 }
 
+function repeatButtonClicked() {
+  if(!repeatOn) {
+    repeatOn = true;
+    repeatButton.classList.add('button-active')
+  } else {
+    repeatOn = false;
+    repeatButton.classList.remove('button-active')
+  }
+}
+
+function nexOrRepeat() {
+  if(!repeatOn) {
+    nextSong()
+  } else {
+    playSong()
+  }
+}
+
 initializeSong();
 
 play.addEventListener('click', playPauseDecider);
 previous.addEventListener('click', previousSong);
 next.addEventListener('click', nextSong);
 song.addEventListener('timeupdate', updateProgressBar);
+song.addEventListener('ended', nexOrRepeat);
 progressContainer.addEventListener('click', jumpTo);
 shuffleButton.addEventListener('click', shuffeButtonClicked);
+repeatButton.addEventListener('click', repeatButtonClicked);
