@@ -108,62 +108,64 @@ function jumpTo(event) {
 function shuffleArray(preShuffleArray) {
   const size = preShuffleArray.length;
   let currentIndex = size - 1;
-  while(currentIndex > 0) {
-   let ramdomIndex = Math.floor( Math.random() * size);
-   let aux = preShuffleArray[currentIndex];
-   preShuffleArray[currentIndex] = preShuffleArray[ramdomIndex];
-   preShuffleArray[ramdomIndex] = aux;
-   currentIndex -= 1;
-   console.log(sortedPlaylist);
+  while (currentIndex > 0) {
+    let ramdomIndex = Math.floor(Math.random() * size);
+    let aux = preShuffleArray[currentIndex];
+    preShuffleArray[currentIndex] = preShuffleArray[ramdomIndex];
+    preShuffleArray[ramdomIndex] = aux;
+    currentIndex -= 1;
+    console.log(sortedPlaylist);
   }
 }
 
 function shuffeButtonClicked() {
-  if(!isShuffled) {
+  if (!isShuffled) {
     isShuffled = true;
     shuffleArray(sortedPlaylist);
-    shuffleButton.classList.add('button-active')
-  }
-  else {
+    shuffleButton.classList.add('button-active');
+  } else {
     isShuffled = false;
-    sortedPlaylist = [...playList]
-    shuffleButton.classList.remove('button-active')
+    sortedPlaylist = [...playList];
+    shuffleButton.classList.remove('button-active');
   }
 }
 
 function repeatButtonClicked() {
-  if(!repeatOn) {
+  if (!repeatOn) {
     repeatOn = true;
-    repeatButton.classList.add('button-active')
+    repeatButton.classList.add('button-active');
   } else {
     repeatOn = false;
-    repeatButton.classList.remove('button-active')
+    repeatButton.classList.remove('button-active');
   }
 }
 
 function nexOrRepeat() {
-  if(!repeatOn) {
-    nextSong()
+  if (!repeatOn) {
+    nextSong();
   } else {
-    playSong()
+    playSong();
   }
 }
 
 function toHHMMSS(originalNumber) {
-  let hours = Math.floor(originalNumber/3600);
-  let min = Math.floor((originalNumber - hours * 3600)/ 60);
+  let hours = Math.floor(originalNumber / 3600);
+  let min = Math.floor((originalNumber - hours * 3600) / 60);
   let secs = Math.floor(originalNumber - hours * 3600 - min * 60);
 
   return `
-      ${hours.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}
+      ${hours.toString().padStart(2, '0')}:${min
+    .toString()
+    .padStart(2, '0')}:${secs.toString().padStart(2, '0')}
     `;
 }
-
 
 function updateTotalTime() {
   toHHMMSS(song.duration);
   totalTime.innerText = toHHMMSS(song.duration);
 }
+
+console.log('teste');
 
 initializeSong();
 
