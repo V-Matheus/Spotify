@@ -9,7 +9,7 @@ const currentProgress = document.getElementById('current-progress');
 const progressContainer = document.getElementById('progress-container');
 const shuffleButton = document.getElementById('shuffle');
 const repeatButton = document.getElementById('repeat');
-const songTime = document.getElementById('sont-time');
+const songTime = document.getElementById('song-time');
 const totalTime = document.getElementById('total-time');
 
 songName.innerText = 'Do I wanna know ?';
